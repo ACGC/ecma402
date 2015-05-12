@@ -66,6 +66,7 @@ define({
 	            "ecma402/tests/unitTests/testIslamicCalendar",
 	            "ecma402/tests/unitTests/testJapaneseCalendar",
 	            "ecma402/tests/unitTests/testROCCalendar",
+	            "ecma402/tests/unitTests/testNumericShaping",
 	            "ecma402/tests/intl402/suite/ch06/6.2",
                 "ecma402/tests/intl402/suite/ch06/6.3",
                 "ecma402/tests/intl402/suite/ch06/6.4",
