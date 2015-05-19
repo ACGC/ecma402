@@ -161,6 +161,15 @@ define(
 					// tags:
 			        //		private
 					
+					
+					/* As of Unicode 7.0, the Arabic script is contained in the following blocks:
+					 * 
+					 * Arabic (0600—06FF, 255 characters)Arabic Supplement (0750—077F, 48 characters)
+					 * Arabic Extended-A (08A0—08FF, 39 characters)
+					 * Arabic Presentation Forms-A (FB50—FDFF, 608characters)
+					 * Arabic Presentation Forms-B (FE70—FEFF, 140 characters)
+					 */
+					
 					var strongArabic = [["\u0608", "\u0608"],
 					                    ["\u060B", "\u060B"],
 					                    ["\u060D", "\u060D"],
@@ -182,48 +191,85 @@ define(
 					                    ["\uFDFE", "\uFDFF"],
 					                    ["\uFE70", "\uFEFE"]];
 					
-					var strongLatin = [ ["\u0041", "\u005A"],
-										["\u0061", "\u007A"],
-										["\u00AA", "\u00AA"],
-										["\u00B5", "\u00B5"],
-										["\u00BA", "\u00BA"],
-										["\u00C0", "\u00D6"],
-										["\u00D8", "\u00F6"],
-										["\u00F8", "\u02B8"],
-										["\u02BB", "\u02BF"],
-										["\u02E0", "\u02E4"],
-										["\u02EE", "\u02EE"],
-										["\u1D00", "\u1DBF"],
-										["\u1E00", "\u1EFF"],
-										["\u200E", "\u200E"],
-										["\u202A", "\u202A"],
-										["\u202D", "\u202D"],
-										["\u2066", "\u2066"],
-										["\u2071", "\u2073"],
-										["\u207F", "\u207F"],
-										["\u2090", "\u209F"],
-										["\u2124", "\u2124"],
-										["\u2126", "\u2126"],
-										["\u2128", "\u2128"],
-										["\u212A", "\u212D"],
-										["\u212F", "\u2139"],
-										["\u213C", "\u213F"],
-										["\u2145", "\u2149"],
-										["\u214E", "\u214F"],
-										["\u2160", "\u2188"],
-										["\u218A", "\u218F"],
-										["\u2C60", "\u2C7F"],
-										["\uA722", "\uA787"],
-										["\uA789", "\uA7BF"],
-										["\uA7F0", "\uA7FF"],
-										["\uAB30", "\uAB6F"],
-										["\uFB00", "\uFB0F"],
-										["\uFF21", "\uFF3A"],
-										["\uFF41", "\uFF5A"]];
+					var weakArabic =[["\u0600", "\u0607"],
+					                 ["\u0609", "\u060A"],
+					                 ["\u060C", "\u060C"],
+					                 ["\u060E", "\u061A"],
+					                 ["\u064B", "\u066C"],
+					                 ["\u0670", "\u0670"],
+					                 ["\u06D6", "\u06E4"],
+					                 ["\u06E7", "\u06ED"],
+					                 ["\u06F0", "\u06F9"],
+					                 ["\u08E4", "\u08FF"],
+					                 ["\uFD3E", "\uFD3F"],
+					                 ["\uFDD0", "\uFDEF"],
+					                 ["\uFDFD", "\uFDFD"],
+					                 ["\uFEFF", "\uFEFF"]];
+						
+					/* As of Unicode 7.0, the latin script is contained in the following blocks:
+					 * 
+					 * Basic Latin, 0000–007F.
+					 * Latin Extended-A, 0100–017F
+					 * Latin Extended-B, 0180–024F
+					 * IPA Extensions, 0250–02AF
+					 * Spacing Modifier Letters, 02B0–02FF
+					 * Phonetic Extensions, 1D00–1D7F 
+					 * Phonetic Extensions Supplement, 1D80–1DBF
+					 * Latin Extended Additional, 1E00–1EFF
+					 * Superscripts and Subscripts, 2070-209F
+					 * Letter-like Symbols, 2100–214F
+					 * Number Forms, 2150–218F
+					 * Latin Extended-C, 2C60–2C7F
+					 * LatinExtended-D, A720–A7FF
+					 * Latin Extended-E, AB30–AB6F
+					 * Alphabetic Presentation Forms (Latin ligatures) FB00–FB4F
+					 * Halfwidth and Fullwidth Forms (fullwidthLatin letters) FF00–FFEF
+					 */
+					var weakLatin = [["\u0000", "\u0040"],
+					                 ["\u005B", "\u0060"],
+					                 ["\u007B", "\u007F"],
+					                 ["\u0080", "\u00A9"],
+					                 ["\u00AB", "\u00B4"],
+					                 ["\u00B6", "\u00B9"],
+					                 ["\u00BB", "\u00BF"],
+					                 ["\u00D7", "\u00D7"],
+					                 ["\u00F7", "\u00F7"],
+					                 ["\u02B9", "\u02BA"],
+					                 ["\u02C2", "\u02CF"],
+					                 ["\u02D2", "\u02DF"],
+					                 ["\u02E5", "\u02ED"],
+					                 ["\u02EF", "\u02FF"],
+					                 ["\u2070", "\u2070"],
+					                 ["\u2074", "\u207E"],
+					                 ["\u2080", "\u208E"],
+					                 ["\u2100", "\u2101"], 
+					                 ["\u2103", "\u2106"], 
+					                 ["\u2108", "\u2109"], 
+					                 ["\u2114", "\u2114"], 
+					                 ["\u2116", "\u2118"], 
+					                 ["\u211E", "\u2123"], 
+					                 ["\u2125", "\u2125"], 
+					                 ["\u2127", "\u2127"], 
+					                 ["\u2129", "\u2129"], 
+					                 ["\u212E", "\u212E"], 
+					                 ["\u213A", "\u213B"], 
+					                 ["\u2140", "\u2144"], 
+					                 ["\u214A", "\u214D"],
+					                 ["\u2150", "\u215F"], 
+					                 ["\u2189", "\u2189"],
+					                 ["\uA720", "\uA721"],
+					                 ["\uA788", "\uA788"],
+					                 ["\uFF01", "\uFF20"], 
+					                 ["\uFF3B", "\uFF40"], 
+					                 ["\uFF5B", "\uFF65"], 
+					                 ["\uFFE0", "\uFFE6"], 
+					                 ["\uFFE8", "\uFFEE"]];
 					
 					if(this._binarySearch(strongArabic, char) > -1){
 						this._context = 2;
-					}else if(this._binarySearch(strongLatin, char) > -1){
+					}else if(this._binarySearch(weakArabic, char) > -1 || this._binarySearch(weakLatin, char) > -1){
+						return;
+					}else{
 						this._context = 1;
 					}
 				},
